@@ -1,18 +1,25 @@
-let age = 25;
-let year = 2019;
+// strings
+console.log('hello, world');
 
-console.log(age, year);
+let email = 'mario@thenetninja.co.uk';
+console.log(email);
 
-age = 30;
+// string concatenation
+let firstName = 'Brandon';
+let lastName = 'Sanderson';
 
-console.log(age);
+let fullName = firstName + ' ' + lastName;
+console.log(fullName);
 
-const points = 100;
+// string length
+console.log(fullName[0] + ' ' + lastName);
+console.log(fullName.length);
 
-console.log(points);
+// string methods
+console.log(fullName.toUpperCase());
+let result = fullName.toLowerCase();
+console.log(result);
 
-points = 333; // gets an error - Uncaught TypeError: Assignment to constant variable.
-
-// used to use 'var' but var is old now (do not use)
-var score = 75;
-console.log(score);
+let index = email.indexOf('@');
+console.log(index);
+console.log(email[index]);
