@@ -1,16 +1,21 @@
-// loose vs strict comparison
+// type conversion
 
-let age = 25;
+let score = '100';
 
-// loose comparison (different types can still be equal)
-console.log(age == 25);
-console.log(age == '25');
-console.log(age != 25);
-console.log(age != '25');
+console.log(score + 1); // 1001 because score is a string
+console.log(typeof score);
 
-// strict comparison (different types cannot be equal)
-console.log(age === 25);
-console.log(age === '25');
-console.log(age !== 25);
-console.log(age !== '25');
+score = Number(score);
+console.log(score + 1); // 101 because score has been converted to a number
+console.log(typeof score);
 
+
+// let result = Number('hello');
+// console.log(result); // NaN
+
+// let result = String(500);
+// console.log(result, typeof result);
+
+// let result = Boolean(100); // positive and negative numbers are truthy
+let result = Boolean(0); // 0 numbers are falsey
+console.log(result, typeof result);
