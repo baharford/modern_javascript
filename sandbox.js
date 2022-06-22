@@ -1,25 +1,13 @@
-// arrays
-let ninjas = ['shaun', 'ryu', 'chun-li'];
-console.log(ninjas);
-// ninjas[1] = 'ken';
-// console.log(ninjas[1]);
+// null & undefined
+let age;
 
-let ages = [20, 25, 30, 35];
-console.log(ages[2]);
+console.log(age); // undefined
+console.log(age + 3); // NaN
+console.log(`the age is ${age}`); // undefined
 
-// let random = ['shaun', 'crystal', 30, 20];
-// console.log(random);
+let age1 = null;
 
-
-// array methods
-console.log(ninjas.length);
-
-// let result = ninjas.join(',');
-// let result = ninjas.indexOf('chun-li');
-// let result = ninjas.concat(['ken', 'crystal']);
-let result = ninjas.push('ken');
-result = ninjas.pop();
-
-console.log(result);
-console.log(ninjas);
+console.log(age1); // null
+console.log(age1 + 3); // 3
+console.log(`the age is ${age1}`); // null
 
