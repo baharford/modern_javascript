@@ -1,14 +1,8 @@
+// arguments & parameters
 
-// function expression (hoisting doesn't work)
-const speak = function(){
-    console.log('good day!');
-};
-
-speak();
-
-greet(); // works because of "hoisting" with function declaration
-
-// function declaration
-function greet() { 
-    console.log('hello there');
+const speak = function(name = 'luigi', time = 'night') { 
+    console.log(`good ${time} ${name} !`);
 }
+
+speak(); // function will use default values if we don't assign
+speak('mario', 'morning');
