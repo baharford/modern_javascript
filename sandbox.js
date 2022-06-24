@@ -1,4 +1,4 @@
-// adding methods to an object
+// using 'this' keyword with an object
 
 let user = { 
     name: 'crystal',
@@ -11,8 +11,13 @@ let user = {
     },
     logout: function() { 
         console.log('user logged out');
+    },
+    logBlogs: function() { 
+        console.log('this user has written the following blogs:');
+        this.blogs.forEach(blog => {
+            console.log(blog);
+        });
     }
 };
 
-user.login();
-user.logout();
+user.logBlogs();
