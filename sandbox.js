@@ -1,19 +1,20 @@
-// Math Object
+// primitive values (changes value on the stack so they can be different)
 
-console.log(Math);
-console.log(Math.PI);
-console.log(Math.E);
+let scoreOne = 50
+let scoreTwo = scoreOne;
 
-const area = 7.7;
+console.log(`scoreOne: ${scoreOne}, scoreTwo: ${scoreTwo}`);
+scoreOne = 100;
+console.log(`scoreOne: ${scoreOne}, scoreTwo: ${scoreTwo}`);
 
-console.log(Math.round(area));
-console.log(Math.floor(area));
-console.log(Math.ceil(area));
-console.log(Math.trunc(area));
 
-// generate random numbers between 0-1
-const random = Math.random();
-console.log(random);
+// reference values (changes pointer on the heap so both values are updated)
 
-// generate random numbers between 1-100
-console.log(Math.round(random * 100))
+const userOne = { name: 'ryu', age: 30 };
+userTwo = userOne;
+
+console.log(userOne,userTwo);
+
+userTwo.age = 50
+
+console.log(userOne,userTwo);
