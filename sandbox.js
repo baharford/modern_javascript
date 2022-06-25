@@ -1,30 +1,15 @@
-// query selector (returns a single element)
+// get an element by ID
+const title = document.getElementById('page-title');
+console.log(title);
 
-// by element
-// const para = document.querySelector('p');
-
-// by class name
-// const para = document.querySelector('.error');
-
-// by class name
-// const para = document.querySelector('body > h1');
-
-// by element and class name
-const para = document.querySelector('div.error');
-
-console.log(para);
+// get elements by their class name
+const errors = document.getElementsByClassName('error');
+console.log(errors);
+console.log(errors[0]);
 
 
-// select multiple elements (returns a node list)
-
-const paras = document.querySelectorAll('p');
-
-paras.forEach(para => { 
-    console.log(para);
-});
-
+// get elements by their tag name
+const paras = document.getElementsByTagName('p');
 console.log(paras);
 console.log(paras[0]);
 
-const errors = document.querySelectorAll('.error');
-console.log(errors);
