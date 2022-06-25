@@ -1,28 +1,19 @@
-// using 'this' keyword with an object
+// Math Object
 
-const blogs = [
-    { title: 'why mac and cheese rules', likes: 30 },
-    { title: '10 things to make with marmite', likes: 50 },
-];
+console.log(Math);
+console.log(Math.PI);
+console.log(Math.E);
 
-let user = { 
-    name: 'crystal',
-    age: 30,
-    email: 'crystal@thenetninja.co.uk',
-    location: 'Berlin',
-    blogs: blogs,
-    login() {
-        console.log('the user logged in');
-    },
-    logout() { 
-        console.log('user logged out');
-    },
-    logBlogs() { 
-        console.log('this user has written the following blogs:');
-        this.blogs.forEach(blog => {
-            console.log(`title: ${blog.title} , likes: ${blog.likes}`);
-        });
-    }
-};
+const area = 7.7;
 
-user.logBlogs();
+console.log(Math.round(area));
+console.log(Math.floor(area));
+console.log(Math.ceil(area));
+console.log(Math.trunc(area));
+
+// generate random numbers between 0-1
+const random = Math.random();
+console.log(random);
+
+// generate random numbers between 1-100
+console.log(Math.round(random * 100))
