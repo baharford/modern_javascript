@@ -1,16 +1,17 @@
-// getting & setting attributes
+// Changing CSS Styles
 
-const link = document.querySelector('a');
+const title = document.querySelector('h1');
 
-// get the attribute
-console.log(link.getAttribute('href'));
+// overwrites existing style
+// title.setAttribute('style', 'margin: 50px;');
 
-// set the attribute
-link.setAttribute('href', 'https://www.thenetninja.co.uk');
-link.innerText = 'The Net Ninja Website';
+// how to add to existing style
+console.log(title.style);
+console.log(title.style.color);
 
-const message = document.querySelector('p');
-console.log(message.getAttribute('class'));
-message.setAttribute('class', 'success');
+title.style.margin = '50px';
+title.style.color = 'crimson';
+title.style.fontSize = '60px';
 
-message.setAttribute('style', 'color: green');
+// delete a style
+title.style.margin = '';
