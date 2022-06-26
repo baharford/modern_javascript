@@ -1,24 +1,18 @@
-// Parents, Children & Siblings
+// Event Basics (click events)
 
-const article = document.querySelector('article');
+const button = document.querySelector('button');
 
-// cant use forEach on HTMLCollection, so need to make it an array
-// console.log(article.children);
-// console.log(Array.from(article.children));
+button.addEventListener('click', () => { 
+    console.log('you clicked me');
+})
 
-// parent-child relationship
-Array.from(article.children).forEach(child => { 
-    child.classList.add('article-element');
-});
+const items = document.querySelectorAll('li');
 
-// child-parent relationship
-const title = document.querySelector('h2');
-console.log(title.parentElement);
-
-// can chain them togethter
-console.log(title.parentElement.parentElement);
-console.log(title.nextElementSibling);
-console.log(title.previousElementSibling);
-
-// chaining
-console.log(title.nextElementSibling.parentElement.children);
+items.forEach(item => { 
+    item.addEventListener('click', e => {
+        console.log('you clicked the item');
+        console.log(e);
+        console.log(e.target);
+        e.target.style.textDecoration = 'line-through';
+    })
+})
