@@ -1,4 +1,4 @@
-// Creating and removing elements
+// Event Bubbling and Delegation
 
 const ul = document.querySelector('ul');
 const button = document.querySelector('button');
@@ -10,11 +10,21 @@ button.addEventListener('click', () => {
     ul.prepend(li);
 })
 
-const items = document.querySelectorAll('li');
+// const items = document.querySelectorAll('li');
 
-items.forEach(item => { 
-    item.addEventListener('click', e => {
+// items.forEach(item => { 
+//     item.addEventListener('click', e => {
+//         console.log('event in LI');
+//         e.stopPropagation();
+//         e.target.remove();
+//     })
+// })
+
+// because when you click in li, it bubbles up to ul.  We can put the even listener in the UL and check if target is LI
+ul.addEventListener('click', e => { 
+    console.log('event in UL');
+    console.log(e);
+    if(e.target.tagName === 'LI') { 
         e.target.remove();
-    })
-})
-
+    }
+});
