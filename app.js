@@ -20,7 +20,23 @@ form.addEventListener('submit', e => {
     console.log(score);
 
     // show result on page
+    scrollTo(0,0);
     result.querySelector('span').textContent = `${score}%`;
     result.classList.remove('d-none');
+
+    // window object (global object)
+
+    // console.log('hello');
+    // window.console.log('hello');
+
+    // console.log(document.querySelector('form'));
+    // console.log(window.document.querySelector('form'));
+    
+    // alert('hello');
+    // window.alert('hello');
+
+    // setTimeout(() => {
+    //     alert('hello, ninjas');
+    // }, 3000);
 
 });
