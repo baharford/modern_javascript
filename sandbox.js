@@ -1,30 +1,21 @@
-// Testing RexEx Patterns
+// Basic Form Validation
 const form = document.querySelector('.signup-form');
+const feedback = document.querySelector('.feedback');
 
 form.addEventListener('submit', e => {
     e.preventDefault(); // submit action refershed page by default unless you have this
-    // console.log(username.value);
+    
+    // validation
+    const username = form.username.value;
+    const usernamePattern = /^[a-zA-Z]{6,12}$/
+    if(usernamePattern.test(username)) {
+        // feedback good info
+        feedback.textContent = 'that username is valid!';
+    } else {
+        // feedback help info
+        feedback.textContent = 'username must contain letters only and be between 6 and 12 characters';
+    }
+
     console.log(form.username.value); // another way to get a field from a form
-
 });
-
-
-// testing RegEx
-const username = 'shaunp';
-const pattern = /^[a-z]{6,}$/
-
-// let result = pattern.test(username);
-
-// if(result) {
-//     console.log('regex test passed :)');
-// } else {
-//     console.log('regex test failed :(');
-// }
-
-
-// returns the index of where the start of the pattern is found
-// const username = '123shaunp55';
-// const pattern = /[a-z]{6,}/
-let result = username.search(pattern);
-console.log(result);
 
