@@ -1,30 +1,16 @@
-// adding and changing page content
+// getting & setting attributes
 
-const para = document.querySelector('p');
+const link = document.querySelector('a');
 
-// console.log(para.innerText);
-// para.innerText = 'ninjas are awesome';
+// get the attribute
+console.log(link.getAttribute('href'));
 
-const paras = document.querySelectorAll('p');
+// set the attribute
+link.setAttribute('href', 'https://www.thenetninja.co.uk');
+link.innerText = 'The Net Ninja Website';
 
-// change the text of something
-// paras.forEach(para => { 
-//     console.log(para.innerText);
-//     para.innerText += ' new text';
-// });
+const message = document.querySelector('p');
+console.log(message.getAttribute('class'));
+message.setAttribute('class', 'success');
 
-
-// change the html of something
-const content = document.querySelector('.content');
-
-// //console.log(content.innerHTML);
-// content.innerHTML += '<h2>THIS IS A NEW H2</h2>';
-
-
-const people = ['mario', 'luigi', 'yoshi']; 
-
-// cycle through the people and generate some html template
-people.forEach(person => { 
-    content.innerHTML += `<p>${person}</p>`;
-});
-
+message.setAttribute('style', 'color: green');
