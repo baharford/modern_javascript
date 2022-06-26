@@ -1,31 +1,24 @@
-// Adding & Removing Classes
+// Parents, Children & Siblings
 
-// const content = document.querySelector('p');
+const article = document.querySelector('article');
 
-// console.log(content.classList);
-// content.classList.add('error');
-// content.classList.remove('error');
-// content.classList.add('success');
+// cant use forEach on HTMLCollection, so need to make it an array
+// console.log(article.children);
+// console.log(Array.from(article.children));
 
-
-// loop through each p tag
-// if it contains text 'error' then update class to have 'error'
-// if it contains text 'success' then update class to have 'success'
-const paras = document.querySelectorAll('p');
-
-paras.forEach(para => { 
-    if(para.textContent.includes('error')) {
-        para.classList.add('error');
-    }
-    if(para.textContent.includes('success')) { 
-        para.classList.add('success');
-    }
+// parent-child relationship
+Array.from(article.children).forEach(child => { 
+    child.classList.add('article-element');
 });
 
+// child-parent relationship
+const title = document.querySelector('h2');
+console.log(title.parentElement);
 
-// how to toggle classes
-const title = document.querySelector('.title');
+// can chain them togethter
+console.log(title.parentElement.parentElement);
+console.log(title.nextElementSibling);
+console.log(title.previousElementSibling);
 
-// will add or remove a class from the list depending on what's already there
-title.classList.toggle('test');
-title.classList.toggle('test');
+// chaining
+console.log(title.nextElementSibling.parentElement.children);
