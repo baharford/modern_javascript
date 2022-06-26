@@ -1,30 +1,20 @@
-// Event Bubbling and Delegation
+// More DOM Events
 
-const ul = document.querySelector('ul');
-const button = document.querySelector('button');
+const copy = document.querySelector('.copy-me');
 
-button.addEventListener('click', () => { 
-    const li = document.createElement('li');
-    li.textContent = 'something new to do';
-    //ul.append(li);
-    ul.prepend(li);
+copy.addEventListener('copy', () => { 
+    console.log('OI! my content is copyright');
+});
+
+// an even on the box
+const box = document.querySelector('.box');
+box.addEventListener('mousemove', e => { 
+    //console.log(e.offsetX, e.offsetY);
+    box.textContent = `x position is: ${e.offsetX} - y position is: ${e.offsetY}`;
 })
 
-// const items = document.querySelectorAll('li');
+// an event on the entire DOM
+document.addEventListener('wheel', e => { 
+    console.log(e.pageX, e.pageY);
 
-// items.forEach(item => { 
-//     item.addEventListener('click', e => {
-//         console.log('event in LI');
-//         e.stopPropagation();
-//         e.target.remove();
-//     })
-// })
-
-// because when you click in li, it bubbles up to ul.  We can put the even listener in the UL and check if target is LI
-ul.addEventListener('click', e => { 
-    console.log('event in UL');
-    console.log(e);
-    if(e.target.tagName === 'LI') { 
-        e.target.remove();
-    }
 });
