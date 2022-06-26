@@ -1,17 +1,31 @@
-// Changing CSS Styles
+// Adding & Removing Classes
 
-const title = document.querySelector('h1');
+// const content = document.querySelector('p');
 
-// overwrites existing style
-// title.setAttribute('style', 'margin: 50px;');
+// console.log(content.classList);
+// content.classList.add('error');
+// content.classList.remove('error');
+// content.classList.add('success');
 
-// how to add to existing style
-console.log(title.style);
-console.log(title.style.color);
 
-title.style.margin = '50px';
-title.style.color = 'crimson';
-title.style.fontSize = '60px';
+// loop through each p tag
+// if it contains text 'error' then update class to have 'error'
+// if it contains text 'success' then update class to have 'success'
+const paras = document.querySelectorAll('p');
 
-// delete a style
-title.style.margin = '';
+paras.forEach(para => { 
+    if(para.textContent.includes('error')) {
+        para.classList.add('error');
+    }
+    if(para.textContent.includes('success')) { 
+        para.classList.add('success');
+    }
+});
+
+
+// how to toggle classes
+const title = document.querySelector('.title');
+
+// will add or remove a class from the list depending on what's already there
+title.classList.toggle('test');
+title.classList.toggle('test');
