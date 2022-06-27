@@ -13,54 +13,20 @@ const getTodos = (resource) => {
             }
         });
     
-        // request.open('GET', 'https://jsonplaceholder.typicode.com/todos');
-        // request.open('GET', 'todos.json');
         request.open('GET', resource);
         request.send();
     });
 }
 
-console.log(1);
-console.log(2);
-
-// promise example
-const getSomething = () => {
-
-    return new Promise((resolve, reject) => { // something that's going to take some time to do.  Will either be 'resolved' = get the data you want, or 'rejected' = don't get data you want
-        // fetch something
-        resolve('some data');
-        reject('some error');
-    }); 
-};
-
-
-// one way to use promises
-// getSomething().then((data) => { 
-//     console.log(data); // first callback function fires if we resolve
-// }, (err) => { 
-//     console.log(err); // second callback function fires if we reject
-// });
-
-console.log(3);
-console.log(4);
-
-// second way to use promises using 'catch'
-// getSomething().then(data => { 
-//     console.log(data);
-// }).catch(err => { 
-//     console.log(err);
-// });
-
-//resolved 
+// promise chaining (no callback hell)
 getTodos('todos/luigi.json').then(data => {
     console.log('promise resolved: ', data);
-}).catch(err => {
-    console.log('promise rejected:', err);
-});
-
-// rejected
-getTodos('todos/luigi_notexisting.json').then(data => {
-    console.log('promise resolved: ', data);
+    return getTodos('todos/mario.json'); // returns a promise
+}).then(data => { // can use this to tack on new promises
+    console.log('promise 2 resolved', data);
+    return getTodos('todos/shaun.json'); // returns a promise
+}).then(data => { 
+    console.log('promise 3 resolved', data);
 }).catch(err => {
     console.log('promise rejected:', err);
 });
