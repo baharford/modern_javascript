@@ -1,6 +1,11 @@
 // async and await (best way to do non-blocking calls in javascript)
 const getTodos = async () => { // adding 'async' always returns a promise
     const response = await fetch('todos/luigi.json'); // do this fetch and wait for the promise to resolve
+
+    if(response.status !== 200){
+        throw new Error('cannot fetch the data');
+    }
+
     const data = await response.json();
 
     return data;
@@ -13,7 +18,7 @@ console.log(1);
 console.log(2);
 getTodos()
     .then(data => { console.log('resolved', data)})
-    .catch();
+    .catch(err => console.log('rejected:', err.message));
 console.log(3);
 console.log(4);
 
