@@ -1,28 +1,33 @@
-// filter method
-const scores = [10, 30, 15, 25, 50, 40, 5];
+// map method
+const prices = [20, 10, 30, 25, 15, 40, 80, 5];
 
 // simple example
-// console.log(scores);
+// console.log(prices);
 
-// .filter() is non-destructive, so it doesn't change the orginal array.  have to set new array to filtered values
-// const filteredScores = scores.filter((score) => { 
-//     return score >= 20;
-// })
+// // .map() is non-destructive, so it doesn't change the orginal array.  have to set new array to map values
+// const salePrices = prices.map(price => {
+//     return price / 2;
+// });
 
-// console.log(filteredScores);
+// console.log(salePrices);
 
 
 
 // more complex example
-const users = [
-    {name: 'shaun', premium: true},
-    {name: 'yoshi', premium: false},
-    {name: 'mario', premium: false},
-    {name: 'chun-li', premium: true},
-]
+const products = [
+    {name: 'gold star', price: 20},
+    {name: 'mushroom', price: 40},
+    {name: 'green shells', price: 30},
+    {name: 'banana skin', price: 10},
+    {name: 'red shells', price: 50}
+];
 
-const premiumUsers = users.filter(user => {
-    return user.premium;
+const salePrices = products.map(product => {
+    if(product.price > 30) {
+        return {name: product.name, price: product.price / 2};
+    } else {
+        return product;
+    }
 });
 
-console.log(premiumUsers);
+console.log(salePrices);
