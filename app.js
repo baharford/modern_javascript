@@ -23,3 +23,11 @@ addForm.addEventListener('submit', e => {
         addForm.reset();
     }
 });
+
+// delete todos
+list.addEventListener('click', e => {
+    if(e.target.classList.contains('delete')) { 
+        console.log('deleting element', e);
+        e.target.parentElement.remove();
+    }
+});
