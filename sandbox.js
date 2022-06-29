@@ -1,23 +1,23 @@
-// dates and times
-const now = new Date(); // new goes before constructor to 'new' it up
-
-console.log(now);
-console.log(typeof now);
-
-// year, months, day, times
-console.log('getFullYear:', now.getFullYear());
-console.log('getMonth:', now.getMonth()); // 0 based, so the month is always 1 behind what you would expect
-console.log('getDate:', now.getDate());
-console.log('getDay:', now.getDay()); // starts from Sunday (0) and goes through days
-
-console.log('getHours:', now.getHours());
-console.log('getMinutes:', now.getMinutes());
-console.log('getSeconds:', now.getSeconds());
-
 // timestamps
-console.log('timestamp', now.getTime()); // number of miliseconds since Jan 1, 1970
+const before = new Date('February 1 2019 7:30:59');
+const now = new Date();
 
-// date strings
-console.log(now.toDateString());
-console.log(now.toTimeString());
-console.log(now.toLocaleString());
+console.log(now.getTime(), before.getTime());
+
+// how to find difference between these 2 dates
+const diff = now.getTime() - before.getTime();
+console.log(diff);
+
+const mins = Math.round(diff / 1000 / 60); // 1000 miliseconds in a second, 60 seconds in a minute
+console.log('mins', mins);
+
+const hours = Math.round(mins / 60);
+console.log('hours', hours);
+
+const days = Math.round(hours / 24);
+console.log('days', days);
+
+// Converting timestamps into date objects
+const timestamp = 1656528286143;
+console.log(new Date(timestamp));
+
