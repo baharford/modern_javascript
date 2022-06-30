@@ -20,12 +20,16 @@ User.prototype.logout = function() {
     return this;
 }
 
+function Admin(username, email, title) { 
+    User.call(this, username, email); // pass in the call object and then the call parameters
+    this.title = title;
+}
+
+Admin.prototype = Object.create(User.prototype); // create a copy of the user prototype inside the admin prototype
+
 const userOne = new User('mario', 'mario@thenetninja.co.uk'); // an 'instance' of the object
 const userTwo = new User('luigi', 'luigi@thenetninja.co.uk');
-userOne.login().logout();
+const userThree = new Admin('shaun', 'shaun@thenextninja.co.uk', 'black-belt,ninja');
 
-// the 'new' keyword
-// 1 - it creates a new empty object {}
-// 2 - it binds the value of 'this' to the new empty object
-// 3 - it calls the constructor function to 'build' the object
 
+console.log(userOne, userTwo, userThree);
