@@ -4,6 +4,7 @@ const card = document.querySelector('.card');
 const details = document.querySelector('.details');
 const time = document.querySelector('img.time');
 const icon = document.querySelector('.icon img');
+const forecast = new Forecast();
 
 const updateUI = (data) => { 
 
@@ -21,7 +22,7 @@ const updateUI = (data) => {
         <div class="display-4 my-4">
         <span>${weather.Temperature.Metric.Value}</span>
         <span>&deg;C</span>
-        </div>
+        </div> 
     `;
 
     // update the night/day & icon images
@@ -39,18 +40,6 @@ const updateUI = (data) => {
 
 }
 
-const updateCity = async (city) => {
-
-    const cityDetails = await getCity(city);
-    const weather = await getWeather(cityDetails.Key);
-
-    // this is object shorthand notation since the name and value are of the same name
-    return {
-        cityDetails,
-        weather
-    }
-}
-
 cityForm.addEventListener('submit', e => {
     // prevent default action (refresh)
     e.preventDefault();
@@ -60,7 +49,7 @@ cityForm.addEventListener('submit', e => {
     cityForm.reset();
 
     // update the ui with the new city
-    updateCity(city)
+    forecast.updateCity(city)
         .then(data => updateUI(data))
         .catch(err => console.log(err));
 
@@ -71,7 +60,9 @@ cityForm.addEventListener('submit', e => {
 
 // automatically load the city if it exists in local storage
 if(localStorage.getItem('city')) { 
-    updateCity(localStorage.getItem('city'))
+    forecast.updateCity(localStorage.getItem('city'))
     .then( data => updateUI(data))
-    .cath(err => console.log(err));
+    .catch(err => console.log(err));
 }
+
+console.log(forecast);
