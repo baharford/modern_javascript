@@ -4,6 +4,20 @@ class User {
         // set up properties
         this.username = username;
         this.email = email;
+        this.score = 0;
+    }
+    login() { 
+        console.log(`${this.username} just logged in`);
+        return this;
+    }
+    logout() { 
+        console.log(`${this.username} just logged out`);
+        return this;
+    }
+    incScore() { 
+        this.score += 1;
+        console.log(`${this.username} has a score of ${this.score}`);
+        return this;
     }
 }
 
@@ -17,4 +31,12 @@ const userTwo = new User('luigi', 'luigi@thenetninja.co.uk');
 
 console.log('userOne', userOne);
 console.log('userTwo', userTwo);
+
+// userOne.login();
+// userTwo.login();
+
+// userOne.logout();
+// userTwo.logout();
+
+userOne.login().incScore().incScore().incScore().logout(); // method chaining possible when you return this
 
