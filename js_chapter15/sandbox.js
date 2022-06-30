@@ -21,6 +21,12 @@ class User {
     }
 }
 
+class Admin extends User { 
+    deleteUser(userToDelete) { 
+        users = users.filter(currentUser => currentUser.username !== userToDelete.username);
+    }
+}
+
 // the 'new' keyword
 // 1 - it creates a new empty object {}
 // 2 - it binds the value of 'this' to the new empty object
@@ -28,6 +34,7 @@ class User {
 
 const userOne = new User('mario', 'mario@thenetninja.co.uk'); // an 'instance' of the object
 const userTwo = new User('luigi', 'luigi@thenetninja.co.uk');
+const userThree = new Admin('shaun', 'shaun@thenetninja.co.uk');
 
 console.log('userOne', userOne);
 console.log('userTwo', userTwo);
@@ -39,4 +46,11 @@ console.log('userTwo', userTwo);
 // userTwo.logout();
 
 userOne.login().incScore().incScore().incScore().logout(); // method chaining possible when you return this
+console.log(userThree);
+
+let users = [userOne, userTwo, userThree];
+console.log(users);
+
+userThree.deleteUser(userTwo);
+console.log(users);
 
