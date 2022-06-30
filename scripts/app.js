@@ -6,9 +6,10 @@ const updateCity = async (city) => {
     const cityDetails = await getCity(city);
     const weather = await getWeather(cityDetails.Key);
 
+    // this is object shorthand notation since the name and value are of the same name
     return {
-        cityDetails: cityDetails,
-        weather: weather
+        cityDetails,
+        weather
     }
 }
 
