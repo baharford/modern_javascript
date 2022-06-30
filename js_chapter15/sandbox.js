@@ -22,6 +22,10 @@ class User {
 }
 
 class Admin extends User { 
+    constructor(username, email, title) {
+        super(username, email);
+        this.title = title;
+    }
     deleteUser(userToDelete) { 
         users = users.filter(currentUser => currentUser.username !== userToDelete.username);
     }
@@ -34,7 +38,7 @@ class Admin extends User {
 
 const userOne = new User('mario', 'mario@thenetninja.co.uk'); // an 'instance' of the object
 const userTwo = new User('luigi', 'luigi@thenetninja.co.uk');
-const userThree = new Admin('shaun', 'shaun@thenetninja.co.uk');
+const userThree = new Admin('shaun', 'shaun@thenetninja.co.uk', 'black-belt-ninja');
 
 console.log('userOne', userOne);
 console.log('userTwo', userTwo);
