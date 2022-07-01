@@ -1,6 +1,7 @@
 const list = document.querySelector('ul');
 const form = document.querySelector('form');
 
+// add recipe to ui
 const addRecipe = (recipe, id) => { 
     let time = recipe.created_at.toDate();
     let html = ` 
@@ -13,20 +14,29 @@ const addRecipe = (recipe, id) => {
     list.innerHTML += html; // append to list element
 };
 
-db.collection('recipes').get().then((snapshot) => {
-    // when we have the data
-    // console.log(snapshot);
-    // console.log(snapshot.docs);
-    // console.log(snapshot.docs[0].data());
-    snapshot.docs.forEach(doc => { 
-        console.log(doc.data());
-        addRecipe(doc.data(), doc.id);
+// delete recipe from UI
+const deleteRecipe = (id) => { 
+    const recipes = document.querySelectorAll('li');
+    recipes.forEach(recipe => { 
+        if(recipe.getAttribute('data-id') === id) { 
+            recipe.remove();
+        }
     });
-}).catch(err => { 
-    console.log(err);
+};
+
+// get documents in real time
+db.collection('recipes').onSnapshot(snapshot => { // on 'snapshot' means everytimes there's a change in the db
+    snapshot.docChanges().forEach(change => { 
+        const doc = change.doc;
+        if(change.type === 'added') { 
+            addRecipe(doc.data(), doc.id);
+        } else if (change.type === 'removed') { 
+            deleteRecipe(doc.id);
+        }
+    });
 });
 
-// add documents
+// add documents to db
 form.addEventListener('submit', e => { 
     e.preventDefault();
 
@@ -44,7 +54,7 @@ form.addEventListener('submit', e => {
 
 });
 
-// deleting data 
+// deleting data from db
 list.addEventListener('click', e => { 
     if(e.target.tagName === 'BUTTON') { 
         const id = e.target.parentElement.getAttribute('data-id');
