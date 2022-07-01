@@ -1,20 +1,26 @@
-// rest parameter
-const double = (...nums) => {  // <-- this ... in the rest parameter
-    console.log(nums);
-    return nums.map(num => num*2);
-}
+// sets -- like arrays but with unique values 
+const namesArray = ['ryu', 'chun-li', 'ryu', 'shaun'];
+console.log(namesArray);
 
-const result = double(1,3,5,7,9,2,4,6,8);
-console.log(result);
+// const namesSet = new Set(['ryu', 'chun-li', 'ryu', 'shaun']);  // <- does same thing as below
+// const namesSet = new Set(namesArray);
+// console.log(namesSet);
 
-// spread syntax (arrays)
-const people = [ 'shaun', 'ryu', 'crystal'];
-const members = ['mario', 'chun-li', ...people];
-console.log(...people);
-console.log(...members);
+// const uniqueNames = [...namesSet];
+const uniqueNames = [...new Set(namesArray)];
+console.log(uniqueNames);
 
-// spread syntax (objects)
-const person = {name: 'shaun', age: 30, job: 'net ninja'};
-const personClone = {...person, location: 'manchester'};
 
-console.log(personClone);
+// sets also have their own unique set of methods (different than arrays)
+const ages = new Set();
+ages.add(20);
+ages.add(25);
+console.log(ages);
+ages.delete(25, ages.size); // sets use *.size rather than *.length to get size
+
+console.log(ages.has(30)); // returns boolean
+
+ages.clear();
+console.log(ages);
+
+
