@@ -26,6 +26,8 @@ class Chatroom {
     // real time listener
     getChats(callback) {
         this.chats
+            .where('room', '==', this.room) // complex query example for firestore
+            .orderBy('created_at')
             .onSnapshot(snapshot => { 
                 snapshot.docChanges().forEach(change => { 
                     if(change.type === 'added') { 
@@ -36,12 +38,7 @@ class Chatroom {
     }
 }
 
-const chatroom = new Chatroom('gaming', 'shaun');
-//console.log(chatroom);
-
-// chatroom.addChat('hello everyone')
-//     .then(() => console.log('chat added'))
-//     .catch(err => console.log(err));
+const chatroom = new Chatroom('general', 'shaun');
 
 chatroom.getChats((data) => { 
     console.log(data);
