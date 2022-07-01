@@ -1,5 +1,6 @@
 const list = document.querySelector('ul');
 const form = document.querySelector('form');
+const button = document.querySelector('button');
 
 // add recipe to ui
 const addRecipe = (recipe, id) => { 
@@ -25,7 +26,7 @@ const deleteRecipe = (id) => {
 };
 
 // get documents in real time
-db.collection('recipes').onSnapshot(snapshot => { // on 'snapshot' means everytimes there's a change in the db
+const unsub = db.collection('recipes').onSnapshot(snapshot => { // on 'snapshot' means everytimes there's a change in the db
     snapshot.docChanges().forEach(change => { 
         const doc = change.doc;
         if(change.type === 'added') { 
@@ -35,6 +36,8 @@ db.collection('recipes').onSnapshot(snapshot => { // on 'snapshot' means everyti
         }
     });
 });
+
+
 
 // add documents to db
 form.addEventListener('submit', e => { 
@@ -62,4 +65,10 @@ list.addEventListener('click', e => {
             console.log('recipe deleted!');
         });
     }
+});
+
+// unsub from databse changes
+button.addEventListener('click', () => { 
+    unsub();
+    console.log('unsubscribed from collection changes');
 });
