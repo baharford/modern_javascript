@@ -8,4 +8,4 @@ console.log(contact);
 console.log('all users: ', users);
 console.log('premium users: ', getPremUsers(users));
 
-
+console.log('test');
