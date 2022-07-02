@@ -1,9 +1,1 @@
-"use strict";
-
-var greet = function greet(name) {
-  console.log("hello ".concat(name));
-};
-
-greet('mario');
-greet('luigi');
-greet('link');
+(()=>{const l=l=>{console.log(`hello ${l}`)};l("mario"),l("luigi"),l("link")})();
