@@ -5,6 +5,12 @@ module.exports = {
     output: { 
         path: path.resolve(__dirname, 'dist/assets'),
         filename: 'bundle.js'
+    },
+    devServer: {
+        static: { 
+            directory: path.resolve(__dirname, 'dist')
+        },
+        compress: true
     }
 };
 
