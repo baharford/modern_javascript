@@ -6,6 +6,9 @@ module.exports = {
         path: path.resolve(__dirname, 'dist/assets'),
         filename: 'bundle.js'
     },
+    watchOptions: {
+        poll: true
+    },
     devServer: {
         static: { 
             directory: path.resolve(__dirname, 'dist')
